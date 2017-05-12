@@ -12,6 +12,7 @@ import com.example.testing.simonsaysreboot.R;
 import com.example.testing.simonsaysreboot.ui.main.game.GameFragment;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by dannylui on 5/11/17.
@@ -32,6 +33,7 @@ public class HomeFragment extends Fragment implements HomeView {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
 
         presenter = new HomePresenter(this);
 
