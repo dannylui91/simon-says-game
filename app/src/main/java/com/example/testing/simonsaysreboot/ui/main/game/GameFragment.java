@@ -13,7 +13,8 @@ import com.example.testing.simonsaysreboot.R;
  * Created by dannylui on 5/11/17.
  */
 
-public class GameFragment extends Fragment {
+public class GameFragment extends Fragment implements GameView {
+    private GamePresenter presenter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -23,5 +24,7 @@ public class GameFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        presenter = new GamePresenter(this);
     }
 }

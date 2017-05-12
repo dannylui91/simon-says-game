@@ -5,11 +5,13 @@
     android:background="#546E7A">
 
     <Button
+        android:id="@+id/main_btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="start"/>
 
     <Button
+        android:id="@+id/main_btn_quit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="quit"/>
