@@ -31,7 +31,6 @@ public class GamePresenter {
 
     public void finishFlashing(int index) {
         if (index == gameEngine.getButtonLocList().size() - 1) {
-            System.out.println("FINISHED FLASHING");
             view.enableButtons();
         }
     }
@@ -58,13 +57,15 @@ public class GamePresenter {
 
     public void checkCorrectButtonClicked(ButtonLoc button) {
         if (gameEngine.getButtonLocList().get(currentIndex) == button) {
-            System.out.println("TRUE");
             currentIndex++;
             if (currentIndex == gameEngine.getButtonLocList().size()) {
+                currentIndex = 0;
                 loopGame();
                 return;
             }
         } else {
+            currentIndex = 0;
+            view.disableButtons();
             view.showLoserPopup();
         }
     }

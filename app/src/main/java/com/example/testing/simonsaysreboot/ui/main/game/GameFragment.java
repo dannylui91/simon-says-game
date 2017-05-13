@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
     @BindView(R.id.game_btn_top_right) Button topRightButton;
     @BindView(R.id.game_btn_bot_left) Button botLeftButton;
     @BindView(R.id.game_btn_bot_right) Button botRightButton;
+    @BindView(R.id.game_cv_popup) CardView popupWindow;
 
     private GamePresenter presenter;
 
@@ -66,7 +68,6 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
                 case BOTRIGHT:
                     flashButton(botRightButton, i);
                     break;
-
             }
         }
     }
@@ -125,6 +126,7 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
 
     @Override
     public void showLoserPopup() {
-        Toast.makeText(getContext(), "You lost", Toast.LENGTH_SHORT).show();
+        popupWindow.setVisibility(View.VISIBLE);
+        Toast.makeText(getContext(), "You lose", Toast.LENGTH_SHORT).show();
     }
 }
