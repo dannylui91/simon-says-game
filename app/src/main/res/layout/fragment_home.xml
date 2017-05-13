@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#546E7A"
-              android:orientation="vertical">
+              android:background="#546E7A">
 
-    <Button
-        android:id="@+id/main_btn_start"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start"/>
+        android:layout_centerInParent="true">
 
-    <Button
-        android:id="@+id/main_btn_quit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="quit"/>
+        <Button
+            android:id="@+id/main_btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"/>
 
+        <Button
+            android:id="@+id/main_btn_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="quit"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

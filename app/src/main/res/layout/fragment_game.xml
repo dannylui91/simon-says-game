@@ -64,7 +64,7 @@
             android:layout_gravity="center">
 
             <Button
-                android:id="@+id/game_btn_play_again"
+                android:id="@+id/game_btn_retry"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
@@ -74,9 +74,10 @@
                 android:text="play again"/>
 
             <Button
+                android:id="@+id/game_btn_go_back"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/game_btn_play_again"
+                android:layout_below="@id/game_btn_retry"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"

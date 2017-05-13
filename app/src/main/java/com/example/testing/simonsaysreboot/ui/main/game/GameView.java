@@ -15,5 +15,9 @@ public interface GameView {
 
     void disableButtons();
 
-    void showLoserPopup();
+    void showHomeFragment();
+
+    void showPopupWindow();
+
+    void hidePopupWindow();
 }

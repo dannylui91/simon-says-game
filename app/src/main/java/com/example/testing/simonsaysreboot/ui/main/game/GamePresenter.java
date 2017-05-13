@@ -59,14 +59,31 @@ public class GamePresenter {
         if (gameEngine.getButtonLocList().get(currentIndex) == button) {
             currentIndex++;
             if (currentIndex == gameEngine.getButtonLocList().size()) {
-                currentIndex = 0;
-                loopGame();
-                return;
+                handleWinning();
             }
         } else {
-            currentIndex = 0;
-            view.disableButtons();
-            view.showLoserPopup();
+            handleLosing();
         }
+    }
+
+    private void handleWinning() {
+        currentIndex = 0;
+        loopGame();
+    }
+
+    private void handleLosing() {
+        currentIndex = 0;
+        gameEngine.getButtonLocList().clear();
+        view.disableButtons();
+        view.showPopupWindow();
+    }
+
+    public void onPlayAgainButtonClicked() {
+        view.hidePopupWindow();
+        loopGame();
+    }
+
+    public void onGoBackButtonClicked() {
+        view.showHomeFragment();
     }
 }

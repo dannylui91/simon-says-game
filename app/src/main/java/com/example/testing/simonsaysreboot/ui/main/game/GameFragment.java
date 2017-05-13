@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.testing.simonsaysreboot.R;
 import com.example.testing.simonsaysreboot.model.ButtonLoc;
+import com.example.testing.simonsaysreboot.ui.main.home.HomeFragment;
 
 import java.util.List;
 
@@ -29,6 +29,8 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
     @BindView(R.id.game_btn_bot_left) Button botLeftButton;
     @BindView(R.id.game_btn_bot_right) Button botRightButton;
     @BindView(R.id.game_cv_popup) CardView popupWindow;
+    @BindView(R.id.game_btn_retry) Button retryButton;
+    @BindView(R.id.game_btn_go_back) Button goBackButton;
 
     private GamePresenter presenter;
 
@@ -46,6 +48,8 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
         topRightButton.setOnClickListener(this);
         botLeftButton.setOnClickListener(this);
         botRightButton.setOnClickListener(this);
+        retryButton.setOnClickListener(this);
+        goBackButton.setOnClickListener(this);
 
         presenter = new GamePresenter(this);
         presenter.loopGame();
@@ -121,12 +125,29 @@ public class GameFragment extends Fragment implements GameView, View.OnClickList
             case R.id.game_btn_bot_right:
                 presenter.onBotRightButtonClicked();
                 break;
+            case R.id.game_btn_retry:
+                presenter.onPlayAgainButtonClicked();
+                break;
+            case R.id.game_btn_go_back:
+                presenter.onGoBackButtonClicked();
+                break;
         }
     }
 
     @Override
-    public void showLoserPopup() {
+    public void showHomeFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new HomeFragment())
+                .commit();
+    }
+
+    @Override
+    public void showPopupWindow() {
         popupWindow.setVisibility(View.VISIBLE);
-        Toast.makeText(getContext(), "You lose", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void hidePopupWindow() {
+        popupWindow.setVisibility(View.GONE);
     }
 }
